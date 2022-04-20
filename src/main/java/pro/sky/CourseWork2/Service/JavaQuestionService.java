@@ -2,12 +2,10 @@ package pro.sky.CourseWork2.Service;
 
 import org.springframework.stereotype.Service;
 import pro.sky.CourseWork2.Data.Question;
-import pro.sky.CourseWork2.Exception.QuestionExistException;
 import pro.sky.CourseWork2.Exception.QuestionNotFoundException;
 
 import java.util.*;
 
-import static java.util.stream.Collectors.toList;
 
 @Service
 public class JavaQuestionService implements QuestionService{
@@ -42,10 +40,6 @@ public class JavaQuestionService implements QuestionService{
         if (question == null || answer == null) {
             throw new NullPointerException("Нельзя использовать Null");
         }
-    }
-
-    private String getQuestionAndAnswer(String question, String answer) {
-        return question + " " + answer;
     }
 
     @Override
