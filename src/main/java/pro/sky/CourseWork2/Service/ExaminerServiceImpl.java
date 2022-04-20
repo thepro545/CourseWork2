@@ -26,6 +26,6 @@ public class ExaminerServiceImpl implements ExaminerService {
             }
         }
 
-        return Collections.unmodifiableCollection(questionService.getAll());
+        return questions;
     }
 }
