@@ -12,30 +12,24 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class JavaQuestionService implements QuestionService{
     private final Set<Question> questions = new HashSet<>();
-    private Integer index = 0;
     Random random;
 
     @Override
     public Question add(String question, String answer) {
         checkNull(question, answer);
-        String key = getQuestionAndAnswer(question, answer);
-        if (questions.contains(key)) {
-            throw new QuestionExistException("Вопрос уже существует");
-        }
-//        Question newQuestion = questions.put(key, new Question(question, answer));
         Question newQuestion =  new Question(question, answer);
-        index++;
+        questions.add(newQuestion);
         return newQuestion;
     }
 
     @Override
     public Question remove(String question, String answer) {
         checkNull(question, answer);
-        String key = getQuestionAndAnswer(question, answer);
-        if (!questions.remove(key)) {
+        Question question1 = new Question(question, answer);
+        if (!questions.remove(question1)) {
             throw new QuestionNotFoundException("Вопроса не существует");
         }
-        Question question1 = new Question(question, answer);
+        questions.remove(question1);
         return question1;
     }
 
@@ -55,9 +49,7 @@ public class JavaQuestionService implements QuestionService{
     }
 
     @Override
-    public Question getRandomQuestion(int numMax) {
-        List question = new ArrayList(questions);
-        question.add(random.nextInt(numMax));
-        return (Question) Collections.unmodifiableList(question);
+    public Question getRandomQuestion() {
+        return List.copyOf(questions).get(random.nextInt(questions.size()));
     }
 }

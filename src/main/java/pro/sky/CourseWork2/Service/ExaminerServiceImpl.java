@@ -16,14 +16,13 @@ public class ExaminerServiceImpl implements ExaminerService {
 
     @Override
     public Collection<Question> getQuestions(int amount) {
-        Set<String> collect = new HashSet<>();
+        Set<Question> questions = new HashSet<>();
         if (amount > questionService.getAll().size() || amount < 0) {
             throw new AmountWrongNumberException("Такого количества не существует. Попробуйте другое число");
         }
         else {
-            while (collect.size() != amount) {
-                Question test = questionService.getRandomQuestion(amount);
-                collect.add(String.valueOf(test));
+            while (questions.size() < amount) {
+                questions.add(questionService.getRandomQuestion());
             }
         }
 
