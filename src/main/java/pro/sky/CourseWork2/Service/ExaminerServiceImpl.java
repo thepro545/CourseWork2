@@ -15,9 +15,9 @@ public class ExaminerServiceImpl implements ExaminerService {
     }
 
     @Override
-    public Collection<Question> getQuestions(int amount) {
+    public Collection<Question> getQuestions(Integer amount) {
         Set<Question> questions = new HashSet<>();
-        if (amount > questionService.getAll().size() || amount < 0) {
+        if (amount > questionService.getAll().size() || amount < 1) {
             throw new AmountWrongNumberException("Такого количества не существует. Попробуйте другое число");
         }
         else {
