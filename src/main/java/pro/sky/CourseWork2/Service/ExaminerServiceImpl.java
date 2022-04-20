@@ -8,45 +8,25 @@ import java.util.*;
 
 @Service
 public class ExaminerServiceImpl implements ExaminerService {
+    private final QuestionService questionService;
 
-    private JavaQuestionService questionService;
-//    private final ExaminerServiceImpl examinerService;
-
-    HashMap<Integer, Question> storage = new HashMap<>();
-
-    public ExaminerServiceImpl(JavaQuestionService questionService) {
+    public ExaminerServiceImpl(QuestionService questionService) {
         this.questionService = questionService;
-//        this.examinerService = examinerService;
     }
-
-    public ExaminerServiceImpl() {
-
-    }
-
-    public HashMap<Integer, Question> getStorage(){
-        questionService.add("Вопрос1", "Ответ1");
-        questionService.add("Вопрос2", "Ответ2");
-        questionService.add("Вопрос3", "Ответ3");
-        questionService.add("Вопрос4", "Ответ4");
-        questionService.add("Вопрос5", "Ответ5");
-        return storage;
-    }
-
 
     @Override
     public Collection<Question> getQuestions(int amount) {
         Set<String> collect = new HashSet<>();
-        getStorage();
-        if (amount > storage.size() || amount < 0) {
+        if (amount > questionService.getAll().size() || amount < 0) {
             throw new AmountWrongNumberException("Такого количества не существует. Попробуйте другое число");
         }
         else {
             while (collect.size() != amount) {
-                int test = questionService.getRandomQuestion(amount);
-                collect.add(String.valueOf(storage.get(test)));
+                Question test = questionService.getRandomQuestion(amount);
+                collect.add(String.valueOf(test));
             }
         }
 
-        return Collections.unmodifiableCollection(storage.values());
+        return Collections.unmodifiableCollection(questionService.getAll());
     }
 }
