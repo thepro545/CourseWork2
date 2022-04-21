@@ -54,26 +54,5 @@ public class JavaQuestionServiceTest {
         assertIterableEquals(emptyList(), out.getAll());
     }
 
-//    private void setList() {
-//        out.add(QUESTION_1, ANSWER_1);
-//        out.add(QUESTION_2, ANSWER_2);
-//        out.add(QUESTION_3, ANSWER_3);
-//        out.add(QUESTION_4, ANSWER_4);
-//        out.add(QUESTION_5, ANSWER_5);
-//    }
-//
-//    private static Stream<Arguments> provideArgumentsForTest() {
-//        return Stream.of(
-//                Arguments.of(QUESTION_1, "Вопрос1"),
-//                Arguments.of(QUESTION_2, "Вопрос2"),
-//                Arguments.of(QUESTION_3, "Вопрос3"),
-//                Arguments.of(QUESTION_4, "Вопрос4"),
-//                Arguments.of(QUESTION_5, "Вопрос5")
-//                Arguments.of(ANSWER_1, "Ответ1"),
-//                Arguments.of(ANSWER_2, "Ответ1"),
-//                Arguments.of(ANSWER_3, "Ответ1"),
-//                Arguments.of(ANSWER_4, "Ответ1"),
-//                Arguments.of(ANSWER_5, "Ответ1")
-//        );
 }
 

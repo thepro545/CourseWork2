@@ -37,39 +37,21 @@ public class ExaminerServiceImplTest {
     @ParameterizedTest
     public void checkGetQuestions(Integer amount) {
         setList();
-        Collection<Question> exist = new ArrayList<>();
-        exist = out.getQuestions(AMOUNT_1);
-        assertEquals(amount, exist.size());
-//        Question question1 = questionService.add(QUESTION_1, ANSWER_1);
-//        Question question2 = questionService.add(QUESTION_2, ANSWER_2);
-//        Collection<Question> exist = List.of(question1, question2);
-//        assertEquals(1, exist.size());
-//        Question question2 = out.add(QUESTION_2, ANSWER_2);
-//        Collection<Question> exist = List.of(question1, question2);
-//        Collection<Question> expected = questionService.getAll();
-//        expected.add(QUESTION_AND_ANSWER1);
-//        when(questionService.getAll()).thenReturn(QUESTIONS_BOTH);
-//        assertEquals(1, out.getQuestions(amount));
-//        assertEquals(0, out.getQuestions(AMOUNT_0));
+        when(questionService.getAll()).thenReturn(QUESTIONS_BOTH);
+        when(questionService.getRandomQuestion()).thenReturn(QUESTION_AND_ANSWER1);
+        assertTrue(questionService.getAll().containsAll(out.getQuestions(AMOUNT_1)) );
     }
 
     private void setList() {
         questionService.add(QUESTION_1, ANSWER_1);
         questionService.add(QUESTION_2, ANSWER_2);
-//        questionService.add(QUESTION_3, ANSWER_3);
-//        questionService.add(QUESTION_4, ANSWER_4);
-//        questionService.add(QUESTION_5, ANSWER_5);
     }
 
     private static Stream<Arguments> provideArgumentsForTest() {
         return Stream.of(
-
 //                Arguments.of(AMOUNT_0, 0),
                 Arguments.of(AMOUNT_1, 1),
                 Arguments.of(AMOUNT_2, 2)
-//                Arguments.of(AMOUNT_3, 3),
-//                Arguments.of(AMOUNT_4, 4),
-//                Arguments.of(AMOUNT_5, 5)
                 );
 
     }
