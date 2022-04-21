@@ -46,6 +46,5 @@ public class ExaminerServiceImplTest {
                 Arguments.of(AMOUNT_1, 1),
                 Arguments.of(AMOUNT_2, 2)
                 );
-
     }
 }

@@ -24,11 +24,13 @@ public class JavaQuestionController {
                         @RequestParam ("answer") String answer){
         return questionService.add(question, answer);
     }
+
     @GetMapping(path = "/java/remove")
     public Question remove(@RequestParam ("question") String question,
                            @RequestParam ("answer") String answer){
         return questionService.remove(question, answer);
     }
+
     @GetMapping(path = "/java")
     public Collection<Question> getAll(){
         return questionService.getAll();

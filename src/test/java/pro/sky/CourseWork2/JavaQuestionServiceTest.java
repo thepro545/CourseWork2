@@ -1,14 +1,10 @@
 package pro.sky.CourseWork2;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.provider.Arguments;
 import pro.sky.CourseWork2.Data.Question;
 import pro.sky.CourseWork2.Service.JavaQuestionService;
-
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Stream;
 
 import static java.util.Collections.emptyList;
 import static org.junit.jupiter.api.Assertions.*;

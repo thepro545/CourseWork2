@@ -1,6 +1,5 @@
 package pro.sky.CourseWork2.Data;
 
-import java.util.HashMap;
 import java.util.Objects;
 
 public class Question {
