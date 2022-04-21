@@ -20,9 +20,9 @@ public class QuestionsData {
     public static final String ANSWER_3 = "Ответ3";
     public static final String ANSWER_4 = "Ответ4";
     public static final String ANSWER_5 = "Ответ5";
-    public static final int AMOUNT_0 = 0;
-    public static final int AMOUNT_1 = 1;
-    public static final int AMOUNT_2 = 2;
+    public static final Integer AMOUNT_0 = 0;
+    public static final Integer AMOUNT_1 = 1;
+    public static final Integer AMOUNT_2 = 2;
     public static final Question QUESTION_AND_ANSWER1 = new Question(QUESTION_1, ANSWER_1);
     public static final Question QUESTION_AND_ANSWER2 = new Question(QUESTION_2, ANSWER_2);
     public static final Set<Question> QUESTIONS_BOTH = Set.of(QUESTION_AND_ANSWER1, QUESTION_AND_ANSWER2);

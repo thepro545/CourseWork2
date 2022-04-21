@@ -12,6 +12,8 @@ import pro.sky.CourseWork2.Service.ExaminerService;
 import pro.sky.CourseWork2.Service.ExaminerServiceImpl;
 import pro.sky.CourseWork2.Service.QuestionService;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -27,28 +29,33 @@ public class ExaminerServiceImplTest {
     private QuestionService questionService;
 
     @InjectMocks
-    private ExaminerService out = new ExaminerServiceImpl();
+    private ExaminerService out = new ExaminerServiceImpl(questionService);
 
-//    private ExaminerService out = new ExaminerServiceImpl();
 
     @MethodSource("provideArgumentsForTest")
-    @Test
-    public void checkGetQuestions(int amount) {
+    @ParameterizedTest
+    public void checkGetQuestions(Integer amount) {
         setList();
-
-        Set<Question> expected = (Set<Question>) questionService.getAll();
-        expected.add(QUESTION_AND_ANSWER1);
-//        when(questionService.getAll()).thenReturn(QUESTIONS_BOTH);
         assertEquals(amount, out.getQuestions(AMOUNT_1));
+//        Question question1 = questionService.add(QUESTION_1, ANSWER_1);
+//        Question question2 = questionService.add(QUESTION_2, ANSWER_2);
+//        Collection<Question> exist = List.of(question1, question2);
+//        assertEquals(1, exist.size());
+//        Question question2 = out.add(QUESTION_2, ANSWER_2);
+//        Collection<Question> exist = List.of(question1, question2);
+//        Collection<Question> expected = questionService.getAll();
+//        expected.add(QUESTION_AND_ANSWER1);
+//        when(questionService.getAll()).thenReturn(QUESTIONS_BOTH);
+//        assertEquals(1, out.getQuestions(amount));
 //        assertEquals(0, out.getQuestions(AMOUNT_0));
     }
 
     private void setList() {
         questionService.add(QUESTION_1, ANSWER_1);
         questionService.add(QUESTION_2, ANSWER_2);
-        questionService.add(QUESTION_3, ANSWER_3);
-        questionService.add(QUESTION_4, ANSWER_4);
-        questionService.add(QUESTION_5, ANSWER_5);
+//        questionService.add(QUESTION_3, ANSWER_3);
+//        questionService.add(QUESTION_4, ANSWER_4);
+//        questionService.add(QUESTION_5, ANSWER_5);
     }
 
     private static Stream<Arguments> provideArgumentsForTest() {

@@ -7,6 +7,7 @@ import pro.sky.CourseWork2.Service.JavaQuestionService;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static java.util.Collections.emptyList;
@@ -42,7 +43,7 @@ public class JavaQuestionServiceTest {
     @Test
     public void checkCollection() {
         Question question1 = out.add(QUESTION_1, ANSWER_1);
-        Question question2 = out.add(QUESTION_1, ANSWER_1);
+        Question question2 = out.add(QUESTION_2, ANSWER_2);
         Collection<Question> exist = List.of(question1, question2);
         Collection<Question> actual = out.getAll();
         assertIterableEquals(exist, actual);
