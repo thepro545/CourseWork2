@@ -12,6 +12,7 @@ import pro.sky.CourseWork2.Service.ExaminerService;
 import pro.sky.CourseWork2.Service.ExaminerServiceImpl;
 import pro.sky.CourseWork2.Service.QuestionService;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -36,7 +37,9 @@ public class ExaminerServiceImplTest {
     @ParameterizedTest
     public void checkGetQuestions(Integer amount) {
         setList();
-        assertEquals(amount, out.getQuestions(AMOUNT_1).size());
+        Collection<Question> exist = new ArrayList<>();
+        exist = out.getQuestions(AMOUNT_1);
+        assertEquals(amount, exist.size());
 //        Question question1 = questionService.add(QUESTION_1, ANSWER_1);
 //        Question question2 = questionService.add(QUESTION_2, ANSWER_2);
 //        Collection<Question> exist = List.of(question1, question2);
