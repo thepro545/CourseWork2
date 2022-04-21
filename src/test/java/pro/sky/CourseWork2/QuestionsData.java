@@ -1,13 +1,7 @@
 package pro.sky.CourseWork2;
 
 import pro.sky.CourseWork2.Data.Question;
-import pro.sky.CourseWork2.Service.JavaQuestionService;
-
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
-
-import static java.util.stream.Collectors.groupingBy;
 
 public class QuestionsData {
     public static final String QUESTION_1 = "Вопрос1";
