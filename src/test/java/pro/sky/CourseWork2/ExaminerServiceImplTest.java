@@ -30,26 +30,19 @@ public class ExaminerServiceImplTest {
     private QuestionService questionService;
 
     @InjectMocks
-    private ExaminerService out = new ExaminerServiceImpl(questionService);
-
+    private ExaminerServiceImpl out;
 
     @MethodSource("provideArgumentsForTest")
     @ParameterizedTest
     public void checkGetQuestions(Integer amount) {
-        setList();
         when(questionService.getAll()).thenReturn(QUESTIONS_BOTH);
         when(questionService.getRandomQuestion()).thenReturn(QUESTION_AND_ANSWER1);
         assertTrue(questionService.getAll().containsAll(out.getQuestions(AMOUNT_1)) );
     }
 
-    private void setList() {
-        questionService.add(QUESTION_1, ANSWER_1);
-        questionService.add(QUESTION_2, ANSWER_2);
-    }
-
     private static Stream<Arguments> provideArgumentsForTest() {
         return Stream.of(
-//                Arguments.of(AMOUNT_0, 0),
+                Arguments.of(AMOUNT_0, 0),
                 Arguments.of(AMOUNT_1, 1),
                 Arguments.of(AMOUNT_2, 2)
                 );
